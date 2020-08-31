@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script src="./Vue_3.x.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			
+			<div v-html="htmldata"></div>
+			<div>
+				<span>
+					{{message}}
+				</span>
+			</div>
+			{{myData}}
+			<div v-text="textdata"></div>
+			<span>
+				<input v-model="modeldata"/> {{modeldata}}
+			</span>
+		</div>
+		<script>
+			"use strict";
+			let tvue = new Tvue({
+				ele: "#app",
+				data: {
+					message: 0,
+					myData: "my data",
+					textdata: "v-text test value",
+					modeldata: "input",
+					htmldata: `<h2>count down</h2>`
+				},
+			});
+
+			let i = 1;
+			setTimeout(() => {
+				tvue._data.message = i++;
+			}, 1000);
+			tvue._data.myData = "Hello china"
+		</script>
+	</body>
+</html>
