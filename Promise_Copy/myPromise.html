@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script src="./myPromise.js"></script>
+	</head>
+	<body>
+		<div>My Promise</div>
+		<script>
+			let p1 = new TPromise((reslove, reject) => {
+				reslove("success1");
+			}).then(
+				(res) => {
+					console.log("*** then success ***");
+				},
+				(rej) => {
+					console.log("*** then failed ***");
+				}
+			).finally(() => {
+				console.log("*** finally ***")
+			})
+
+			
+		</script>
+	</body>
+</html>
