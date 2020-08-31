@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>WebComponent</title>
+	</head>
+	<body>
+		<!-- <my-com> </my-com> -->
+		<img is="my-img" />
+		<script>
+			"use strict";
+			// 自定义
+			class myCom extends HTMLElement {
+				constructor() {
+					super();
+					let div = document.createElement("div");
+					div.innerHTML = `<button>click</button>`;
+					let _sd = this.attachShadow({ mode: "open" });
+					_sd.appendChild(div);
+					// this.appendChild(div);
+				}
+			}
+			customElements.define("my-com", myCom);
+			let ele = document.querySelector("my-com");
+
+			// 继承
+			class MyImg extends HTMLImageElement {
+				constructor() {
+					super();
+					console.log(this);
+					setTimeout(
+						() =>
+                            (this.src =
+                                "http://a3.att.hudong.com/14/75/" +
+                                 "01300000164186121366756803686.jpg"),
+						1500
+					);
+				}
+			}
+
+			customElements.define("my-img", MyImg, { extends: "img" });
+		</script>
+	</body>
+</html>
