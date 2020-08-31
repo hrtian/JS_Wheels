@@ -11,8 +11,8 @@ export default class Dialog extends EventTarget {
 			dragable: true, //是否可拖拽
 			maskable: true, //是否有遮罩
 			isCancel: false, //是否有取消
-			cancel: function () {},
-			success: function () {},
+			cancel: function (){},
+			success: function (){},
 		};
 
         for(let k in options) {
